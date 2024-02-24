@@ -9,41 +9,40 @@ const PI = 3.14
 type Person struct {
 	Name string
 	Age int
-}
+} 
 
 func main() {
-	// var x int = 10
-	var decimal float64 = 7.5
-	var text string = "Golang"
+	var x int = 10
+	var y int = 20
+ 	var integer int = 10
+	var decimal float64 = 10.10
+	var text string = "Hello World"
 	var condition bool = true
 
-	fmt.Println("Hello World", PI)
-	fmt.Println("Hello World", decimal)
-	fmt.Println("Hello World", text)
-	fmt.Println("Hello World", condition)
-
 	// struct
-	john := Person{Name: "John", Age: 10}
-	fmt.Println("struct", john)
+	john := Person{"John", 25}
+	fmt.Println("struct: ", john)
 
-	// slice
+	//slice
 	numbers := []int{1, 2, 3, 4, 5}
-	fmt.Println("slice", numbers)
+	fmt.Println("slice: ", numbers)
 
-	// map
-	colors := map[string]string{"red": "#ff0000"}
-	fmt.Println("map:", colors)
+	//map
+	person := map[string]string{"name": "John", "age": "25"}
+	fmt.Println("map: ", person)
 
-	// if
-	// number := 15
+	//map number
+	phone := map[int]string{1: "John", 2: "Doe"}
+	fmt.Println("map number: ", phone)
 
-	// if number % 2 == 0 {
-	// 	fmt.Println(number, "is even")
-	// } else {
-	// 	fmt.Println(number, "is odd")
-	// }
+	number := 15
 
-	// for
+	if number%2 == 0 {
+		fmt.Println("Ganjil")
+	} else {
+		fmt.Println("Genap")
+	}
+
 	for i, count := 2, 0; count < 5; i++ {
 		if isPrime(i){
 			fmt.Println(i)
@@ -51,37 +50,73 @@ func main() {
 		}
 	}
 
-	//switch
-	day := 3
+	// switch 
+	day := 7
 
 	switch day {
 		case 1:
-			fmt.Println("Monday")
+			fmt.Println("Senin")
 		case 2:
-			fmt.Println("Tuesday")
+			fmt.Println("Selasa")
 		case 3:
-			fmt.Println("Wednesday")
+			fmt.Println("Rabu")
 		case 4:
-			fmt.Println("Thursday")
+			fmt.Println("Kamis")
 		case 5:
-			fmt.Println("Friday")
+			fmt.Println("Jumat")
 		case 6:
-			fmt.Println("Saturday")
+			fmt.Println("Sabtu")
 		case 7:
-			fmt.Println("Sunday")
+			fmt.Println("Minggu")
 		default:
-			fmt.Println("Other day")
+			fmt.Println("Tidak ada hari")
 	}
 
-	// pointer
-	x := 20
-	fmt.Println("nilai awal", x)
+	xy := 20
 
-	p := &x
-	*p = 30
+	fmt.Println("Nilai xy adalah", xy)
 
-	fmt.Println("nilai baru", x)
+	py := &xy
+	*py = 50
+	
+	fmt.Println("Nilai xy adalah", xy)
 
+	fmt.Println("Nilai x adalah", integer)
+	fmt.Println("Nilai x adalah", decimal)
+	fmt.Println("Nilai x adalah", text)
+	fmt.Println("Nilai x adalah", condition)
+	fmt.Println("Nilai x adalah", x)
+	fmt.Println("Nilai x adalah", y)
+
+	DisplayNumber(x)
+
+	a := 10
+	b := 3
+
+	fmt.Println("Penjumlahan", a + b)
+	fmt.Println("Pengurangan", a - b)
+	fmt.Println("Perkalian", a * b)
+	fmt.Println("Pembagian", a / b)
+	fmt.Println("Sisa Bagi", a % b)
+
+	c := true
+	d := false
+
+	fmt.Println("AND", c && d)
+	fmt.Println("OR", c || d)
+	fmt.Println("NOT", !d)
+
+	// perbandingan
+	fmt.Println("Sama dengan", a == b)
+	fmt.Println("Tidak sama dengan", a != b)
+	fmt.Println("Lebih besar dari", a > b)
+	fmt.Println("Lebih kecil dari", a < b)
+	fmt.Println("Lebih besar sama dengan", a >= b)
+	fmt.Println("Lebih kecil sama dengan", a <= b)
+}
+
+func DisplayNumber(number int) {
+	fmt.Println("angka", number)
 }
 
 func isPrime(number int) bool {
