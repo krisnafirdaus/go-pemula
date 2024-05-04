@@ -1,130 +1,120 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-const PI = 3.14
+const Pi = 3.14
 
 type Person struct {
 	Name string
 	Age int
-} 
+}
 
-func main() {
-	var x int = 10
-	var y int = 20
- 	var integer int = 10
-	var decimal float64 = 10.10
-	var text string = "Hello World"
-	var condition bool = true
+func main(){
+	var x int = 0
+	fmt.Println("nilai x adalah", x)
+
+	var integer int = 10;
+	var float float32 = 10.55;
+	var decimal float64 = 15.555555;
+	var text string = "Hello World";
+	var boolean bool = true;
+
+	fmt.Println("nilai integer adalah", integer)
+	fmt.Println("nilai float adalah", float)
+	fmt.Println("nilai decimal adalah", decimal)
+	fmt.Println("nilai text adalah", text)
+	fmt.Println("nilai boolean adalah", boolean)
 
 	// struct
-	john := Person{"John", 25}
-	fmt.Println("struct: ", john)
+	john := Person{"John Doe", 25}
+	fmt.Println("Struch", john)
 
-	//slice
+	// Slice
 	numbers := []int{1, 2, 3, 4, 5}
-	fmt.Println("slice: ", numbers)
+	fmt.Println("Slice", numbers)
 
-	//map
-	person := map[string]string{"name": "John", "age": "25"}
-	fmt.Println("map: ", person)
+	// Map
+	colors := map [string]string{"red": "#ff0000", "blue": "#0000ff"}
+	fmt.Println("Map", colors)
 
-	//map number
-	phone := map[int]string{1: "John", 2: "Doe"}
-	fmt.Println("map number: ", phone)
+	//if
+	angka := 10
 
-	number := 15
-
-	if number%2 == 0 {
-		fmt.Println("Ganjil")
+	if angka > 5 {
+		fmt.Println("angka lebih besar dari 5")
 	} else {
-		fmt.Println("Genap")
+		fmt.Println("angka lebih kecil dari 5")
 	}
 
-	for i, count := 2, 0; count < 5; i++ {
-		if isPrime(i){
-			fmt.Println(i)
-			count++
-		}
+	if angka%2 == 0 {
+		fmt.Println("angka genap")
+	} else {
+		fmt.Println("angka ganjil")
 	}
 
-	// switch 
-	day := 7
+	//for
+	for i := 0; i < 5; i++ {
+		fmt.Println("perulangan ke", i)
+	}
+
+	//swicth
+	day := 4 
 
 	switch day {
-		case 1:
-			fmt.Println("Senin")
-		case 2:
-			fmt.Println("Selasa")
-		case 3:
-			fmt.Println("Rabu")
-		case 4:
-			fmt.Println("Kamis")
-		case 5:
-			fmt.Println("Jumat")
-		case 6:
-			fmt.Println("Sabtu")
-		case 7:
-			fmt.Println("Minggu")
-		default:
-			fmt.Println("Tidak ada hari")
+	case 1:
+		fmt.Println("Senin")
+	case 2:
+		fmt.Println("Selasa")
+	case 3:
+		fmt.Println("Rabu")
+	case 4:
+		fmt.Println("Kamis")
+	case 5:
+		fmt.Println("Jumat")
+	case 6:
+		fmt.Println("Sabtu")
+	case 7:
+		fmt.Println("Minggu")
+	default:
+		fmt.Println("Tidak ada hari")
 	}
 
-	xy := 20
+	//pointer
+	y := 20
+	fmt.Println("nilai y adalah", y)
 
-	fmt.Println("Nilai xy adalah", xy)
+	p := &y
+	*p = 30
 
-	py := &xy
-	*py = 50
-	
-	fmt.Println("Nilai xy adalah", xy)
+	fmt.Println("nilai y adalah", y)
 
-	fmt.Println("Nilai x adalah", integer)
-	fmt.Println("Nilai x adalah", decimal)
-	fmt.Println("Nilai x adalah", text)
-	fmt.Println("Nilai x adalah", condition)
-	fmt.Println("Nilai x adalah", x)
-	fmt.Println("Nilai x adalah", y)
-
-	DisplayNumber(x)
-
+	//operator aritmatika
 	a := 10
-	b := 3
+	b := 5
 
-	fmt.Println("Penjumlahan", a + b)
-	fmt.Println("Pengurangan", a - b)
-	fmt.Println("Perkalian", a * b)
-	fmt.Println("Pembagian", a / b)
-	fmt.Println("Sisa Bagi", a % b)
+	fmt.Println("a + b =", a + b)
+	fmt.Println("a - b =", a - b)
+	fmt.Println("a * b =", a * b)
+	fmt.Println("a / b =", a / b)
+	fmt.Println("a % b =", a % b)
 
-	c := true
-	d := false
+	// operator logika
+	fmt.Println("true && true =", true && true)
+	fmt.Println("true && false =", true && false)
+	fmt.Println("true || true =", true || true)
+	fmt.Println("true || false =", true || false)
+	fmt.Println("!true =", !true)
 
-	fmt.Println("AND", c && d)
-	fmt.Println("OR", c || d)
-	fmt.Println("NOT", !d)
+	// operator perbandingan
+	fmt.Println("10 > 5 =", 10 > 5)
+	fmt.Println("10 < 5 =", 10 < 5)
+	fmt.Println("10 >= 5 =", 10 >= 5)
+	fmt.Println("10 <= 5 =", 10 <= 5)
+	fmt.Println("10 == 5 =", 10 == 5)
+	fmt.Println("10 != 5 =", 10 != 5)
 
-	// perbandingan
-	fmt.Println("Sama dengan", a == b)
-	fmt.Println("Tidak sama dengan", a != b)
-	fmt.Println("Lebih besar dari", a > b)
-	fmt.Println("Lebih kecil dari", a < b)
-	fmt.Println("Lebih besar sama dengan", a >= b)
-	fmt.Println("Lebih kecil sama dengan", a <= b)
 }
 
-func DisplayNumber(number int) {
-	fmt.Println("angka", number)
-}
-
-func isPrime(number int) bool {
-	for i := 2; i < number; i++ {
-		if number%i == 0 {
-			return false
-		}
-	}
-
-	return true
+func DisplayNumber(number int){
+	fmt.Println("nilai number adalah", number)
 }
